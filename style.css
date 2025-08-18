@@ -1,0 +1,449 @@
+/* ========================
+   RESET
+======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Lato', Arial, sans-serif;
+  color: #fff;
+  background: url("images/GOn5HMvbgAAtQuZ.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* ========================
+   NAVBAR
+======================== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+
+
+/* Initially hide the navbar logo */
+.logo {
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+/* Show when scrolling past hero */
+.logo.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0 8px;
+}
+
+.nav-links a:hover {
+  color: #ccc;
+}
+
+.nav-links a.active {
+  background: rgba(31, 34, 45, 0.40);           /* dark glass highlight */
+  backdrop-filter: blur(6px);                    /* subtle frosted glass */
+  -webkit-backdrop-filter: blur(6px);            /* Safari support */
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+  color: #fefefe;                                /* accent link color */
+  font-weight: bold;
+  padding: 4px 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Optional: hover style for active link (for interactivity) */
+.nav-links a.active:hover {
+  background: rgba(31,34,45,0.55);
+  color: #fff;
+}
+
+/* Ensure non-active links remain unhighlighted */
+.nav-links a {
+  background: none;
+  color: #fff;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+
+
+/* Hamburger menu icon hidden on desktop */
+.menu-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    font-size: 1.6rem;
+    color: white;
+    cursor: pointer;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    right: 5%;
+    background: rgba(0,0,0,0.62);
+    padding: 8px 0; 
+    border-radius: 8px;
+    width: auto;                  
+    min-width: fit-content;       
+    box-shadow: 0 2px 12px rgba(0,0,0,0.26);
+    gap: 0;
+    z-index: 101;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 10px 20px;           
+    text-align: right;
+    font-size: 1.03rem;
+    white-space: nowrap;          
+  }
+}
+
+/* ========================
+   HERO SECTION
+======================== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.hero img, .hero-photo {
+  width: 30vw;
+  height: 30vw;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-size: 3vw;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.hero p {
+  font-size: 2vw;
+  font-weight: 300;
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero p  { font-size: 1.1rem; }
+}
+
+.hero-social-icons {
+  margin-top: 18px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.hero-social-icons a {
+  color: #fff;
+  font-size: 1.7rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hero-social-icons a:hover {
+  color: #1da1f2;
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .hero-social-icons a {
+    font-size: 1.4rem;
+  }
+}
+
+/* ========================
+   CONTENT SECTIONS
+======================== */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 7vw 60px 7vw;
+}
+
+@media (max-width: 800px) {
+  .content-section { padding: 50px 4vw 30px 4vw; }
+}
+@media (max-width: 500px) {
+  .content-section { padding: 30px 2vw 16px 2vw; }
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ========================
+   CARD STYLES - Liquid Glass
+======================== */
+.card {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 22px rgba(0,0,0,0.45);
+  padding: 40px 45px;
+  margin-bottom: 30px;
+  max-width: 1200px;    /* <-- widened from 1050px or 700px */
+  width: 100%;
+}
+
+
+.card h2, .card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .card { padding: 28px 18px; border-radius: 12px; max-width: 96vw; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .card { padding: 15px 4vw; border-radius: 10px; }
+  .card h2, .card h3 { font-size: 1.08rem; margin-bottom: 14px; }
+  .card p { font-size: 1rem; line-height: 1.5; margin-bottom: 12px; }
+}
+
+/* Extra small */
+@media (max-width: 400px) {
+  .card { padding: 10px 3vw; border-radius: 8px; }
+  .card h2, .card h3 { font-size: 1rem; margin-bottom: 10px; }
+  .card p { font-size: 0.95rem; line-height: 1.4; margin-bottom: 10px; }
+}
+
+/* ========================
+   SKILLS LIST
+======================== */
+.skills-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  background: rgba(255,255,255,0.08);
+  padding: 12px;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #eee;
+}
+
+/* ========================
+   CONTACT CARD
+======================== */
+.contact-card {
+  text-align: center;
+}
+
+.contact-card p {
+  text-align: center;
+  margin: 0 auto 10px;
+  font-size: 1.13rem;
+  color: #eaeaea;
+  font-weight: 500;
+}
+
+/* Contact Links Container */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 18px;
+}
+
+/* Contact Links - Base */
+.contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.08rem;
+  color: #e0e0e0;
+  text-decoration: none !important; /* Remove underline from entire link */
+  transition: color 0.2s;
+}
+
+/* Text Part - Always underlined (or control via hover below) */
+/* Contact Links - Remove underline by default */
+.contact-links a .link-text {
+  text-decoration: none; /* no underline when idle */
+  text-underline-offset: 2px;
+}
+
+/* Underline only on hover */
+.contact-links a:hover .link-text {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Icons remain clean always */
+.contact-links a i {
+  text-decoration: none !important;
+  margin-right: 8px;
+}
+
+
+/* Responsive tweaks if needed */
+@media (max-width: 600px) {
+  .contact-links {
+    gap: 20px;
+  }
+  .contact-links a {
+    font-size: 1rem;
+  }
+}
+
+
+/* ========================
+   FOOTER
+======================== */
+footer {
+  padding: 22px 0;
+  text-align: center;
+  background-color: rgba(0,0,0,0.6);
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+/* ========================
+   MISC & LINK RESET
+======================== */
+a, .section-text a {
+  text-decoration: none;
+}
+.section-text a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* Initial hidden state */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* When visible after scroll */
+.scroll-animation.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contact form container inside card */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* Inputs & textarea styles */
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: 6px;
+  resize: none;
+  font-family: inherit;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(255,255,255,0.5);
+  outline: none;
+  background: rgba(255,255,255,0.12);
+}
+
+/* Submit button */
+.contact-form button {
+  background: rgba(31, 34, 45, 0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: rgba(31, 34, 45, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Make contact form stretch wider inside card */
+.contact-form {
+  max-width: 700px;   /* increase from card's internal width */
+  width: 100%;        /* take up all available space */
+  margin: 15px auto 0; /* center it inside the card */
+}
+
+/* Inputs & textarea stretch full width */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+}
+
+.card {
+  max-width: 1200px; /* instead of 1050px */
+}
